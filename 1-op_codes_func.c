@@ -18,7 +18,7 @@ void op_code_add(stack_t **stack, unsigned int line_number)
 
 	if (size < 2)
 	{
-		fprintf(stderr, "%s %u %s\n", "L", line_number, buf);
+		fprintf(stderr, "%s%u: %s\n", "L", line_number, buf);
 		free_dlist(*stack);
 		exit(EXIT_FAILURE);
 	}

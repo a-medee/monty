@@ -61,7 +61,7 @@ void op_code_pint(stack_t **stack, unsigned int line_number)
 
 	if (!(*stack))
 	{
-		fprintf(stderr, "%s %u %s\n", "L", line_number, buf);
+		fprintf(stderr, "%s%u: %s\n", "L", line_number, buf);
 		free_dlist(*stack);
 		exit(EXIT_FAILURE);
 
@@ -84,7 +84,7 @@ void op_code_pop(stack_t **stack, unsigned int line_number)
 
 	if (!(*stack))
 	{
-		fprintf(stderr, "%s %u %s\n", "L", line_number, buf);
+		fprintf(stderr, "%s%u: %s\n", "L", line_number, buf);
 		free_dlist(*stack);
 		exit(EXIT_FAILURE);
 	}
@@ -109,7 +109,7 @@ void op_code_swap(stack_t **stack, unsigned int line_number)
 
 	if (size < 2)
 	{
-		fprintf(stderr, "%s %u %s\n", "L", line_number, buf);
+		fprintf(stderr, "%s%u: %s\n", "L", line_number, buf);
 		free_dlist(*stack);
 		exit(EXIT_FAILURE);
 	}

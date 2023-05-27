@@ -69,7 +69,7 @@ unsigned int check_valid_op(char *opcode, unsigned int pos, stack_t **stack)
 				    ((strcmp(str_, "0") != 0) &&
 				     (atoi(str_) == 0)))
 				{
-					fprintf(stderr, "%s %u: %s %s\n", "L", pos,
+					fprintf(stderr, "%s%u: %s %s\n", "L", pos,
 						"usage: push integer", opcode);
 					free_dlist(*stack);
 					exit(EXIT_FAILURE);
@@ -83,7 +83,7 @@ unsigned int check_valid_op(char *opcode, unsigned int pos, stack_t **stack)
 
 	if (i == 18)
 	{
-		fprintf(stderr, "%s %u %s %s\n", "L", pos, "unknown instruction",
+		fprintf(stderr, "%s%u: %s %s\n", "L", pos, "unknown instruction",
 			opcode);
 		free_dlist(*stack);
 		exit(EXIT_FAILURE);
