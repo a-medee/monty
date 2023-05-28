@@ -69,8 +69,8 @@ unsigned int check_valid_op(char *opcode, unsigned int pos, stack_t **stack)
 				    ((strcmp(str_, "0") != 0) &&
 				     (atoi(str_) == 0)))
 				{
-					fprintf(stderr, "%s%u: %s %s\n", "L", pos,
-						"usage: push integer", opcode);
+					fprintf(stderr, "%s%u: %s\n", "L", pos,
+						"usage: push integer");
 					free_dlist(*stack);
 					exit(EXIT_FAILURE);
 				}
@@ -89,25 +89,4 @@ unsigned int check_valid_op(char *opcode, unsigned int pos, stack_t **stack)
 		exit(EXIT_FAILURE);
 	}
 	return (pos);
-}
-
-
-/**
- * stack_t_len - returns the number of elements in a
- * linked srack_t list.
- * @h: a head to our doubly linked list
- *
- * Return: the number of nodes in a doubly linked list
- */
-
-size_t stack_t_len(const stack_t *h)
-{
-	size_t count = 0;
-
-	while (h)
-	{
-		count++;
-		h = h->next;
-	}
-	return (count);
 }

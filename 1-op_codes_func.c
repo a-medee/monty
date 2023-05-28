@@ -1,35 +1,5 @@
 #include "monty.h"
 
-
-/**
- * op_code_add - push an element to the stack
- * @stack: the stack head
- * @line_number: file line number
- *
- * Return: a void element
- */
-
-void op_code_add(stack_t **stack, unsigned int line_number)
-{
-	stack_t *first;
-	stack_t *second;
-	char buf[90] = "can't add, stack too short";
-	size_t size = stack_t_len(*stack);
-
-	if (size < 2)
-	{
-		fprintf(stderr, "%s%u: %s\n", "L", line_number, buf);
-		free_dlist(*stack);
-		exit(EXIT_FAILURE);
-	}
-
-	first = get_dnode_at_index((*stack), 0);
-	second = get_dnode_at_index((*stack), 1);
-
-	second->n = second->n + first->n;
-	op_code_pop(stack, line_number);
-}
-
 /**
  * get_dnode_at_index -  a function that returns the nth node of a
  * stack_t
@@ -87,4 +57,24 @@ void free_dlist(stack_t *head)
 		free(torm);
 	}
 	head = NULL;
+}
+
+/**
+ * stack_t_len - returns the number of elements in a
+ * linked srack_t list.
+ * @h: a head to our doubly linked list
+ *
+ * Return: the number of nodes in a doubly linked list
+ */
+
+size_t stack_t_len(const stack_t *h)
+{
+	size_t count = 0;
+
+	while (h)
+	{
+		count++;
+		h = h->next;
+	}
+	return (count);
 }

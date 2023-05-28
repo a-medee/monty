@@ -80,7 +80,7 @@ void op_code_pint(stack_t **stack, unsigned int line_number)
 void op_code_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node = (*stack);
-	char buf[90] = "can't pop, an empty stack";
+	char buf[90] = "can't pop an empty stack";
 
 	if (!(*stack))
 	{

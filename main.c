@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 
 	while ((input = s_gets(file_buffer, 1024, op_file)))
 	{
-		if (*input == '\0')
+		if ((*input == '\0') || (strstr(input, "#")))
 			continue;
 		opcode = strtok(input, " ");
 		get_op_codes(opcode)(&stack, check_valid_op(opcode, pos++, &stack));

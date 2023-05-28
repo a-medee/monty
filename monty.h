@@ -37,22 +37,40 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+	void (*f)(stack_t **, unsigned int);
 } instruction_t;
 
+/** 0-get_op_codes */
 void (*get_op_codes(char *))(stack_t **, unsigned int);
+
+/** 0-op_codes_func.c */
 void op_code_push(stack_t **, unsigned int);
 void op_code_pall(stack_t **, unsigned int);
 void op_code_pint(stack_t **, unsigned int);
 void op_code_pop(stack_t **, unsigned int);
 void op_code_swap(stack_t **, unsigned int);
-void op_code_add(stack_t **, unsigned int);
-void __attribute__((unused))op_code_nop(stack_t **, unsigned int);
 
+/** 2-op_codes_func.c */
+void op_code_add(stack_t **, unsigned int);
+void op_code_sub(stack_t **, unsigned int);
+void op_code_div(stack_t **, unsigned int);
+void op_code_mod(stack_t **, unsigned int);
+void op_code_mul(stack_t **, unsigned int);
+
+
+/** strings.c */
 unsigned int check_valid_op(char *, unsigned int, stack_t **);
 char *s_gets(char *, int, FILE *);
-size_t stack_t_len(const stack_t *h);
-stack_t *get_dnode_at_index(stack_t *head, unsigned int index);
-void free_dlist(stack_t *head);
 
+/** 1-op_codes_func.c */
+size_t stack_t_len(const stack_t *);
+stack_t *get_dnode_at_index(stack_t *, unsigned int);
+void free_dlist(stack_t *);
+void __attribute__((unused))op_code_nop(stack_t **, unsigned int);
+
+/** 3-op_codes_func.c */
+void op_code_pchar(stack_t **, unsigned int);
+void op_code_pstr(stack_t **, unsigned int);
+void op_code_rotr(stack_t **, unsigned int);
+void op_code_rotl(stack_t **, unsigned int);
 #endif /** _MONTY_H_ */
