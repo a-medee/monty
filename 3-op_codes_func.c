@@ -51,20 +51,18 @@ void op_code_pstr(stack_t **stack,
 	stack_t *st = (*stack);
 	unsigned int val;
 
-	if (size == 0)
+	if (size != 0)
 	{
-		fprintf(stdout, "\n");
-	}
-
-	val = st->n;
-	while (st && (st->n != 0))
-	{
-		if ((63 < val) && (64 > val ||  127 < val))
-			break;
-		fprintf(stdout, "%c", st->n);
-		st = st->next;
-		if (st)
-			val = st->n;
+		val = st->n;
+		while (st && (st->n != 0))
+		{
+			if ((63 < val) && (64 > val ||  127 < val))
+				break;
+			fprintf(stdout, "%c", st->n);
+			st = st->next;
+			if (st)
+				val = st->n;
+		}
 	}
 	fprintf(stdout, "\n");
 }
