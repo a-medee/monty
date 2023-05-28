@@ -110,10 +110,10 @@ void op_code_rotl(stack_t **stack,
 
 	if (*stack)
 	{
-		last = get_dnode_at_index(*stack, size - 1);
-		first = (*stack);
-		if (first != (*stack))
+		if (size != 1)
 		{
+			last = get_dnode_at_index(*stack, size - 1);
+			first = (*stack);
 			(*stack) = (*stack)->next;
 			(*stack)->prev = NULL;
 			last->next = first;
