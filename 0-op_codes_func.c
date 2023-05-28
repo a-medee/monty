@@ -24,7 +24,11 @@ void op_code_push(stack_t **stack,
 		(*stack) = new;
 	}
 	else
+	{
 		fprintf(stderr, "%s\n", "Error: malloc failed");
+		free_dlist(*stack);
+		exit(EXIT_FAILURE);
+	}
 }
 
 /**
