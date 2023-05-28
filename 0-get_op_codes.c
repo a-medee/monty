@@ -16,7 +16,8 @@ void (*get_op_codes(char *opcode))(stack_t **stack, unsigned int line_number)
 				    {"div", op_code_div}, {"mod", op_code_mod},
 				    {"mul", op_code_mul}, {"pchar", op_code_pchar},
 				    {"pstr", op_code_pstr}, {"rotr", op_code_rotr},
-				    {"rotl", op_code_rotl}, {NULL, NULL}};
+				    {"rotl", op_code_rotl}, {"stack", op_code_stack},
+				    {"queue", op_code_queue}, {NULL, NULL}};
 	int i = 0;
 
 	while (opcodes[i].opcode)

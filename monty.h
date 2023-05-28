@@ -73,4 +73,8 @@ void op_code_pchar(stack_t **, unsigned int);
 void op_code_pstr(stack_t **, unsigned int);
 void op_code_rotr(stack_t **, unsigned int);
 void op_code_rotl(stack_t **, unsigned int);
+
+/** 4-op_codes_func.c */
+void op_code_stack(stack_t **, unsigned int);
+void op_code_queue(stack_t **, unsigned int);
 #endif /** _MONTY_H_ */
