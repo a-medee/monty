@@ -59,7 +59,7 @@ void op_code_pstr(stack_t **stack,
 	val = st->n;
 	while (st && (st->n != 0))
 	{
-		if ((177 < val) && (100 > val ||  177 < val))
+		if ((63 < val) && (64 > val ||  127 < val))
 			break;
 		fprintf(stdout, "%c", st->n);
 		st = st->next;
