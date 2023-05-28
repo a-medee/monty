@@ -76,21 +76,24 @@ void op_code_pstr(stack_t **stack,
  * Return: a void element
  */
 
-void op_code_rotr(stack_t **stack, unsigned int line_number)
+void op_code_rotr(stack_t **stack,
+		  __attribute__((unused))unsigned int line_number)
 {
-	size_t size = stack_t_len(*stack);
-	stack_t *st = (*stack);
 
-	if (size == 0)
-	{
-		fprintf(stderr, "\n");
-	}
+	stack_t *cur = (*stack);
+	stack_t *prev = NULL;
+	stack_t *next;
 
-	while (st && (st->n != 0))
+	while (cur)
 	{
-		op_code_pchar(&st, line_number);
-		st = st->next;
+		next = cur->next;
+		cur->next = prev;
+		cur->prev = next;
+		prev = cur;
+		cur = next;
 	}
+	(*stack) = prev;
+
 }
 
 /**
